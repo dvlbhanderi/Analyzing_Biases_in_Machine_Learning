@@ -40,7 +40,7 @@ for (i in seq(1,10,by=1)){
 }
 
 
-# Defer on African-Americans so as to convert their AP into that of Caucasians
+# Defer on Females so as to convert their AP into that of Males
 ratio_pdfs = female_score_pdf/male_score_pdf
 delta = 1 - min(ratio_pdfs)
 q_females = 1 - (1-delta)/ratio_pdfs
@@ -48,7 +48,7 @@ female_deferrals = female_score_freq*q_females
 female_deferrals_frac = female_score_pdf*q_females
 female_nondeferrals_frac = female_score_pdf*(1-q_females)
 
-# Defer on Caucasians so as to convert their AP into that of African-Americans
+# Defer on Males so as to convert their AP into that of Females
 ratio_pdfs = male_score_pdf/female_score_pdf
 delta = 1 - min(ratio_pdfs)
 q_males = 1 - (1-delta)/ratio_pdfs
@@ -62,8 +62,8 @@ col_female_deferral = "gray70"
 col_male = "orange2"
 col_male_deferral = "moccasin"
 
-# Generate barplot to display the deferrals of African-Americans to convert
-# their AP into that of Caucasians
+# Generate barplot to display the deferrals of Females to convert
+# their AP into that of Males
 dat1 = rbind(female_nondeferrals_frac,female_deferrals_frac)
 png('female_to_male_equalize.png')
 barplot(dat1, beside=F,main=paste("Converting female AP \ninto male AP.",
@@ -90,8 +90,8 @@ cat("Total female deferrals: ",total_female_deferrals,"\n")
 cat("Fraction of female deferrals: ", total_female_deferrals/num_females,"\n")
 
 
-# Generate barplot to display the deferrals of Caucasians to convert
-# their AP into that of African-Americans
+# Generate barplot to display the deferrals of Males to convert
+# their AP into that of Females
 dat2 = rbind(male_nondeferrals_frac,male_deferrals_frac)
 png('male_to_female_equalize.png')
 barplot(dat2, beside=F,main=paste("Converting male AP into \nfemale AP.",
