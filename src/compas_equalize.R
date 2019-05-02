@@ -1,4 +1,7 @@
 
+#Code demonstrating how one could equalize the AP of Female and
+#Male defendants by deferring on one of the two groups.
+
 library(grid)
 library(gridExtra) 
 library(dplyr)
