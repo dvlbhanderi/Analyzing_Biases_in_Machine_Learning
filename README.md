@@ -25,7 +25,7 @@
   Upon running the command in the ‘Usage’ section, barplots will be created that illustrate the effects of the three postprocessing techniques used here to deal with machine bias on the three different datasets based on gender and race.
 
  ### Ethical Implications
- These models and techniques are designed to address the issue of machine bias and how it could have grave implications in different settings that they are used in. 
+ These models and techniques are designed to address the issue of machine bias and how it could have grave implications in different settings. 
 
 ## Contributors
 * See [Contributors](CONTRIBUTORS.md) file for more details.
