@@ -70,14 +70,14 @@ else:
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
 	elif dataset == 'Student':
-         if model == 'logistic_regression':
-            print("Classification not needed. Already done")
+    	if model == 'logistic_regression':
+    		print("Classification not needed. Already done")
             print("Proceeding to postprocess")
             if postprocess == 'Equalize_AP' :
-                command = 'Rscript'
+            	command = 'Rscript'
     			path_to_rscript = '../student_equalize.R'
-            elif postprocess == 'Defer Threshold':
-                command = 'Rscript'
+           	elif postprocess == 'Defer Threshold':
+            	command = 'Rscript'
     			path_to_rscript = '../student_defer_threshold.R'
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
