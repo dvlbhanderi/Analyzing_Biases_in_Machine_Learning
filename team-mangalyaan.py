@@ -10,10 +10,8 @@ Author : Rutu Gandhi
 import argparse
 import subprocess
 from src.loan_status_prediction import Classifier
-from src.utils.preproc_data import Preprocessing
-from src.nmf import Nmf
-from src.sparsepca import sparse_pca
-from src.unet import UNet
+from src.utils.preproc_data import Postprocessing
+
 
 
 parser = argparse.ArgumentParser(description='Team mangalyaan : Fairness in Machine Learning')
@@ -53,10 +51,10 @@ else:
             print("Classification not needed. Already done")
             print("Proceeding to postprocess")
     		if postprocess == 'Equalize_AP' :
-                command = 'Rscript'
+            	command = 'Rscript'
     			path_to_rscript = '../compas_equalize.R'
             elif postprocess == 'Defer Threshold':
-                command = 'Rscript'
+               	command = 'Rscript'
     			path_to_rscript = '../compas_defer_threshold.R'
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
