@@ -72,7 +72,7 @@ else:
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
 	elif dataset == 'Student':
-        if model == 'logistic_regression':
+         if model == 'logistic_regression':
             print("Classification not needed. Already done")
             print("Proceeding to postprocess")
             if postprocess == 'Equalize_AP' :
