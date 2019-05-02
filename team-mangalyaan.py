@@ -55,11 +55,9 @@ else:
     		if postprocess == 'Equalize_AP' :
                 command = 'Rscript'
     			path_to_rscript = '../compas_equalize.R'
-
             elif postprocess == 'Defer Threshold':
                 command = 'Rscript'
     			path_to_rscript = '../compas_defer_threshold.R'
-
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
     elif dataset == 'Loan_status':
@@ -68,11 +66,9 @@ else:
             if postprocess == 'Equalize_AP' :
                 command = 'Rscript'
     			path_to_rscript = '../loan_equalize.R'
-
             elif postprocess == 'Defer Threshold':
                 command = 'Rscript'
     			path_to_rscript = '../loan_defer_threshold.R'
-
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
 	elif dataset == 'Student':
@@ -82,10 +78,8 @@ else:
             if postprocess == 'Equalize_AP' :
                 command = 'Rscript'
     			path_to_rscript = '../student_equalize.R'
-
             elif postprocess == 'Defer Threshold':
                 command = 'Rscript'
     			path_to_rscript = '../student_defer_threshold.R'
-
             cmd = [command, path_to_rscript]
             subprocess.checkout(cmd)
