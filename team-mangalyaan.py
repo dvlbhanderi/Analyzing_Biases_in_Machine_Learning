@@ -15,7 +15,7 @@ from src.utils.preproc_data import Postprocessing
 
 
 parser = argparse.ArgumentParser(description='Team mangalyaan : Fairness in Machine Learning')
-parser.add_argument('--model', dest='model', type=str, choices=['nmf', 'unet', 'sparsepca'],
+parser.add_argument('--model', dest='model', type=str, 
 	default='logistic_regression', help='model to perform classification on a new dataset')
 parser.add_argument('--trainpath', dest='trainpath',type=str, default='../team-mangalyaan/loan_train.csv',
 	help='local path of csv file')
