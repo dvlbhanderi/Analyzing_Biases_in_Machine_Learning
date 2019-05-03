@@ -17,11 +17,11 @@ num_females = nrow(df_females)
 num_males = nrow(df_males)
 
 # Compute frequency distributions for COMPAS scores for both the groups
-female_score_freq = 1:20
-male_score_freq = 1:20
-female_score_pdf = 1:20
-male_score_pdf = 1:20
-for (i in seq(1,20,by=2)){
+female_score_freq = 1:10
+male_score_freq = 1:10
+female_score_pdf = 1:10
+male_score_pdf = 1:10
+for (i in seq(1,10,by=1)){
   female_score_freq[i] = nrow(filter(df,sex=="F", G3==i))
   female_score_pdf[i] = female_score_freq[i]/num_females
   male_score_freq[i] = nrow(filter(df,sex=="M", G3==i))
@@ -34,39 +34,39 @@ predictiveValue <- function(threshold, positive=T, r="F"){
   if (positive){
     # all members with score >= threshold are marked will recidivate
     total_members = 0
-    total_recid = 0
+    total_pass = 0
     if(threshold>10){
       # no one is marked will recidivate => PPV = 1
       return(1)
     }
-    for(i in seq(threshold,20,by=1)){
+    for(i in seq(threshold,10,by=1)){
       total_members = total_members + nrow(filter(df,sex==r,G3==i))
-      total_recid = total_recid + nrow(filter(df,sex==r,G3==i, is_pass==1))
+      total_pass = total_pass + nrow(filter(df,sex==r,G3==i, is_pass==1))
     }
     if(total_members==0){
       return(1)
     }
     else{
-      return(total_recid/total_members)
+      return(total_pass/total_members)
     }
   }
   else{
     # all members with score <= threshold are marked will not recidivate
     total_members = 0
-    total_not_recid = 0
+    total_not_pass = 0
     if(threshold < 1){
       # no one is marked will not recidivate
       return(1)
     }
     for(i in seq(1,threshold,by=1)){
       total_members = total_members + nrow(filter(df,sex==r,G3==i))
-      total_not_recid = total_not_recid + nrow(filter(df,sex==r,G3==i, is_pass==0))
+      total_not_pass = total_not_pass + nrow(filter(df,sex==r,G3==i, is_pass==0))
     }
     if(total_members==0){
       return(1)
     }
     else{
-      return(total_not_recid/total_members)
+      return(total_not_pass/total_members)
     }
   }
 }
@@ -74,11 +74,11 @@ predictiveValue <- function(threshold, positive=T, r="F"){
 
 
 # Try all pairs of thresholds to equalize PPV and NPV simultaneously
-female_ppv = 1:21
-male_ppv = 1:21
-female_npv = 1:21
-male_npv = 1:21
-for(t in seq(1,21)){
+female_ppv = 1:11
+male_ppv = 1:11
+female_npv = 1:11
+male_npv = 1:11
+for(t in seq(1,11)){
   female_ppv[t] = predictiveValue(t,positive=T,r="F")
   male_ppv[t] = predictiveValue(t,positive=T,r="M")
   female_npv[t] = predictiveValue(t-1,positive=F,r="F")
@@ -100,8 +100,8 @@ col2 = "dimgray"
 col3 = "salmon"
 
 pdf('female_thresholds.pdf')
-barplot(female_score_pdf,beside=F,names.arg=1:20, ylab="", xlab="G3", ylim=c(0,0.5),
-        main=paste("Thresholds for Female scores","\nPPV = 0.682, NPV = 0.699, ","Deferrals = 20%"),
+barplot(female_score_pdf,beside=F,names.arg=1:10, ylab="", xlab="G3", ylim=c(0,0.5),
+        main=paste("Thresholds for Female scores","\nPPV = 0.5, NPV = 0.49, ","Deferrals = 20%"),
         col=c(col1,col1,col2,col2,col3,col3,col3,col3,col3,col3),
         cex.names = cex_factor, cex.lab=cex_factor, cex.axis=cex_factor, cex.main=cex_factor)
 title(ylab="Probability Density", line=2.7, cex.lab=cex_factor)
@@ -114,8 +114,8 @@ abline(v=5, lwd=3)
 dev.off()
 
 pdf('male_thresholds.pdf')
-barplot(male_score_pdf,beside=F,names.arg=1:20, ylab="", xlab="G3", ylim=c(0,0.5),
-        main=paste("Thresholds for Male scores","\nPPV = 0.677, NPV = 0.684, ","Deferrals = 9%"),
+barplot(male_score_pdf,beside=F,names.arg=1:10, ylab="", xlab="G3", ylim=c(0,0.5),
+        main=paste("Thresholds for Male scores","\nPPV = 0.5, NPV = 0.51, ","Deferrals = 9%"),
         col=c(col1,col1,col1,col1,col2,col3,col3,col3,col3,col3),
         cex.names = cex_factor, cex.lab=cex_factor, cex.axis=cex_factor, cex.main=cex_factor)
 title(ylab="Probability Density", line=2.7, cex.lab=cex_factor)
