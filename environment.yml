@@ -8,6 +8,7 @@ dependencies:
   - r-grid
   - r-gridextra
   - r-dplyr
+  -r-ggplot2
 
   # Testing
   
