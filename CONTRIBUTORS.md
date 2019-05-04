@@ -10,7 +10,7 @@
 * Contributed to the README and wiki
 * Packaged the code
 
-[SHRINIDHI ADKE](https://github.com/shriadke)
+[SHRINIDHI ADKE](https://github.com/shriadke) (ARTI 8950: Machine Learning)
 * Worked on testing
 * Contributed to the README and wiki
 * Explored multiclass classification
