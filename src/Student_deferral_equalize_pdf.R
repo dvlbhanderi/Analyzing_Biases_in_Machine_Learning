@@ -1,8 +1,9 @@
-# Experiment on COMPAS data for Broward County
-# as used by ProPublica (https://github.com/propublica/compas-analysis)
+####################################
+# Experiment on Student dataset for two Portuguese schools
+# From UCI Machine Learning Repo. (https://archive.ics.uci.edu/ml/datasets/student+performance)
 # Main paper: https://arxiv.org/pdf/1810.02003.pdf
-# Code demonstrating how one could equalize the AP of African-American and
-# Caucasian defendants by deferring on one of the two groups.
+# Code demonstrating how one could equalize the AP of Female and
+# Male defendants and vice-versa
 ####################################
 
 library(grid)
