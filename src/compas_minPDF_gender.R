@@ -11,7 +11,7 @@ library(ggplot2)
 cex_factor = 1.7
 
 # Load and clean the data selecting for the desired fields
-raw_data <- read.csv("./compas-scores-two-years.csv")
+raw_data <- read.csv("~/team-mangalyaan/datasets/compas-scores-two-years.csv")
 df <- dplyr::select(raw_data, age, c_charge_degree, race, age_cat, score_text, sex, priors_count,
                     days_b_screening_arrest, decile_score, is_recid, c_jail_in, c_jail_out) %>%
                     filter(days_b_screening_arrest <= 30) %>%

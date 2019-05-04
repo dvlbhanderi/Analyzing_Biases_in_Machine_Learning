@@ -105,9 +105,12 @@ class Classifier:
 
         train = pd.read_csv(self.trainpath)
         train = train.drop(train.index[0:429])
+	LS = train['Loan_Status']
+
         train = train.drop('Loan_Status', axis = 1)
 
 
         train['Loan_Status'] = 10*np.around(y_pred[:,1], decimals=1)
+	train['Actual_Status'] = LS
 
-        train.to_csv("../new_loan.csv")
+        train.to_csv("new_loan.csv")

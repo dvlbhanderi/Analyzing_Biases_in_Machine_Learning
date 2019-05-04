@@ -11,7 +11,8 @@ cex_factor = 1.7
 
 
 # Load and clean the data selecting for the desired fields
-raw_data <- read.csv("/home/rutu/DSP/final_project/loan-prediction/new.csv")
+# The new_loan.csv file is generated after running classifier.py  
+raw_data <- read.csv("new_loan.csv")
 df <- dplyr::select(raw_data,Gender,Married,Dependents,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,LoanAmount,Loan_Amount_Term,Credit_History,Property_Area,Loan_Status)
 
 
@@ -90,12 +91,12 @@ for(t in seq(1,11)){
 }
 cat("female_ppv: ", female_ppv,"\n")
 cat("male_ppv: ", male_ppv,"\n")
-cat("female_ppv: ", female_ppv,"\n")
-cat("male_ppv: ", male_ppv,"\n")
+cat("female_npv: ", female_npv,"\n")
+cat("male_npv: ", male_npv,"\n")
 ###
 
 
-(female_score_pdf[3]+female_score_pdf[4])
+print(female_score_pdf[3]+female_score_pdf[4])
 print(male_score_pdf[5])
 
 # Pick colors to be used in the barplots
