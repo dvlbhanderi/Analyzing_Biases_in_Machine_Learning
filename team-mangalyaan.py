@@ -63,7 +63,7 @@ else:
             subprocess.checkout(cmd)
     elif dataset == 'Loan_status':
         if model == 'logistic_regression':
-            cl.run()
+            cl.log_reg()
             if postprocess == 'Equalize AP by deferring on one' :
                 command = 'Rscript'
     			path_to_rscript = '../loan_equalize.R'
