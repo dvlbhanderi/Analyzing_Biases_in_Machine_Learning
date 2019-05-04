@@ -1,0 +1,16 @@
+name: mangalyaan
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Core stack
+  - r
+  - r-grid
+  - r-gridextra
+  - r-dplyr
+
+  # Testing
+  
+
+  # Dev tooling
+  - ipython
