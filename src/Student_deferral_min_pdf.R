@@ -1,3 +1,11 @@
+####################################
+# Experiment on Student dataset for two Portuguese schools
+# From UCI Machine Learning Repo. (https://archive.ics.uci.edu/ml/datasets/student+performance)
+# Main paper: https://arxiv.org/pdf/1810.02003.pdf
+# Code demonstrating how one could equalize the AP of Female and
+# Male defendants by the min-PDF method.
+####################################
+
 library(grid)
 library(gridExtra)
 library(dplyr)
