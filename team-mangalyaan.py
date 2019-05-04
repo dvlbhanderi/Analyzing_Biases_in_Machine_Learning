@@ -47,7 +47,7 @@ if test:
 	command = 'Rscript'
     	path_to_rscript = '/tests/run_tests.py'
 else:
-    if dataset == 'COMPAS':
+	if dataset == 'COMPAS':
 		if model == 'logistic_regression':
 			print("Classification not needed. Already done")
 			print("Proceeding to postprocess")
@@ -63,31 +63,31 @@ else:
 			cmd = [command, path_to_rscript]
 			subprocess.checkout(cmd)
     	elif dataset == 'Loan_status':
-			if model == 'logistic_regression':
-				cl.log_reg()
-				if postprocess == 'Equalize AP by deferring on one' :
-					command = 'Rscript'
-					path_to_rscript = '/src/loan_equalize.R'
-				elif postprocess == 'Equalize AP using min-PDF':
-					command = 'Rscript'
-					path_to_rscript = '/src/loan_minPDF.R'
-				elif postprocess == 'Equalize PPV and NPV using 2 thresholds':
-					command = 'Rscript'
-					path_to_rscript = '/src/loan_two_threshold.R'
-				cmd = [command, path_to_rscript]
-				subprocess.checkout(cmd)
-		elif dataset == 'Student':
-			if model == 'logistic_regression':
-				print("Classification not needed. Already done")
-				print("Proceeding to postprocess")
-				if postprocess == 'Equalize AP by deferring on one' :
-					command = 'Rscript'
-					path_to_rscript = '/src/student_equalize.R'
-				elif postprocess == 'Equalize AP using min-PDF':
-					command = 'Rscript'
-					path_to_rscript = '/src/student_minPDF.R'
-				elif postprocess == 'Equalize PPV and NPV using 2 thresholds':
-					command = 'Rscript'
-					path_to_rscript = '/src/student_defer_threshold.R'
-				cmd = [command, path_to_rscript]
-				subprocess.checkout(cmd)
+		if model == 'logistic_regression':
+			cl.log_reg()
+			if postprocess == 'Equalize AP by deferring on one' :
+				command = 'Rscript'
+				path_to_rscript = '/src/loan_equalize.R'
+			elif postprocess == 'Equalize AP using min-PDF':
+				command = 'Rscript'
+				path_to_rscript = '/src/loan_minPDF.R'
+			elif postprocess == 'Equalize PPV and NPV using 2 thresholds':
+				command = 'Rscript'
+				path_to_rscript = '/src/loan_two_threshold.R'
+			cmd = [command, path_to_rscript]
+			subprocess.checkout(cmd)
+	elif dataset == 'Student':
+		if model == 'logistic_regression':
+			print("Classification not needed. Already done")
+			print("Proceeding to postprocess")
+			if postprocess == 'Equalize AP by deferring on one' :
+				command = 'Rscript'
+				path_to_rscript = '/src/student_equalize.R'
+			elif postprocess == 'Equalize AP using min-PDF':
+				command = 'Rscript'
+				path_to_rscript = '/src/student_minPDF.R'
+			elif postprocess == 'Equalize PPV and NPV using 2 thresholds':
+				command = 'Rscript'
+				path_to_rscript = '/src/student_defer_threshold.R'
+			cmd = [command, path_to_rscript]
+			subprocess.checkout(cmd)
