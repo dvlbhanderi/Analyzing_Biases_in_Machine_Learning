@@ -1,4 +1,4 @@
-# CSCI 8360 Data Science Practicum : Analyzing the biases in Machine Learning: How fair can we be?
+# Team Mangalyaan: Analyzing the biases in Machine Learning: How fair can we be?
 
   ## Goal
   To develop a postprocessing pipeline to equalize PPV, NPV and Accuracy Profiles of protected groups. 
